@@ -9,7 +9,7 @@ if [ -z "$key" ]; then
   word=$(shuf -n 1 < "$file" | cut -d' ' -f1)
 else
   word=$(grep -Fw "$key" < "$file" |
-    awk -v key="$key" '$1 == key { print $0 }' |
+    awk -v key="$key" '$1 == key' |
     shuf -n 1 | awk '{ print $2 }') || exit
   [ -z "$word" ] && exit
 fi
