@@ -3,7 +3,7 @@
 file="${1:-~/.mrkdb}"
 n="${2:-1}"
 key="$3"
-[ ! -z "$key" ] && echo "$key"
+[ -n "$key" ] && echo "$key"
 [ "$n" -le 0 ] && exit
 if [ -z "$key" ]; then
   word=$(shuf -n 1 < "$file" | cut -d' ' -f1)
